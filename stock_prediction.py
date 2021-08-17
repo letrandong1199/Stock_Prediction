@@ -237,17 +237,17 @@ def update_graph(selected_dropdown, selected_dropdown_model, select_dropdown_typ
                 go.Scatter(x=new_data.index,
                            y=new_data[dataType(tye)],
                            mode='lines',
-                           name=f'Data train closing price {dropdown[stock]}', textposition='bottom center'))
+                           name=f'Data train {tye} {dropdown[stock]}', textposition='bottom center'))
             trace2.append(
                 go.Scatter(x=valid.index,
                            y=valid[dataType(tye)],
                            mode='lines',
-                           name=f'Actual closing price {dropdown[stock]}', textposition='bottom center'))
+                           name=f'Actual {tye} {dropdown[stock]}', textposition='bottom center'))
             trace3.append(
                 go.Scatter(x=valid.index,
                            y=valid['Predictions'],
                            mode='lines',
-                           name=f'Predicted closing price {dropdown[stock]}', textposition='bottom center'))
+                           name=f'Predicted {tye} {dropdown[stock]}', textposition='bottom center'))
     traces = [trace1, trace2, trace3]
     data = [val for sublist in traces for val in sublist]
     figure = {'data': data,
@@ -285,17 +285,17 @@ def update_graph(selected_dropdown_model, select_dropdown_type):
             go.Scatter(x=new_data.index,
                        y=new_data[dataType(tye)],
                        mode='lines',
-                       name=f'Data train closing price', textposition='bottom center'))
+                       name=f'Data train {tye}', textposition='bottom center'))
         trace2.append(
             go.Scatter(x=valid.index,
                        y=valid[dataType(tye)],
                        mode='lines',
-                       name=f'Actual closing price', textposition='bottom center'))
+                       name=f'Actual {tye}', textposition='bottom center'))
         trace3.append(
             go.Scatter(x=valid.index,
                        y=valid['Predictions'],
                        mode='lines',
-                       name=f'Predicted closing price', textposition='bottom center'))
+                       name=f'Predicted {tye}', textposition='bottom center'))
     traces = [trace1, trace2, trace3]
     data = [val for sublist in traces for val in sublist]
     figure = {'data': data,
